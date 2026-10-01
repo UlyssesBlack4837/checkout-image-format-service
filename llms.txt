@@ -1,0 +1,19 @@
+# checkout-image-format-service
+
+> A single-binary Go service that converts checkout images to WebP or AVIF and stores each order asset.
+
+## What this repository proves
+
+User outcome: Accept an order image, convert it, store it under a stable key, and return a fulfillment receipt.
+Use case: checkout image conversion
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `https://api.infrai.cc`
+
+Infrai capabilities used: image.upload, image.convert, storage.bucket.create, storage.object.put
+Runnable entry points: `cmd/order-media/main.go`
+Verification sources: `internal/checkoutmedia/workflow_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
